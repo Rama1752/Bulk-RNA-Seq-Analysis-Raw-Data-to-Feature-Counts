@@ -1,19 +1,15 @@
-# Bulk RNA-Seq Analysis
+# Bulk RNA-Seq Analysis: Raw Data to Feature Counts
 
 🎯 Project Overview
-This project demonstrates a complete Bulk RNA-Seq workflow, from raw sequencing data up to differential expression analysis using DESeq2. We analyzed the effect of  **LCOR overexpression** and how it affects gene transcription in two cell lines that differ in nuclear receptor status: 
+This project demonstrates the initial stages of a Bulk RNA-Seq workflow, focusing on processing raw sequencing data through to feature count generation. We analyzed the effect of LCOR overexpression and how it affects gene transcription in two cell lines that differ in nuclear receptor status:
 - **MCF7 (NR-positive)** — nuclear receptor–positive
 - **MDA-MB-231 (NR-negative)** — nuclear receptor–negative  
 LCOR acts both as a transcriptional corepressor and activator, and this dataset enables comparison of its regulatory activity in nuclear receptor–dependent versus independent contexts.
-
-For each cell line we checked overexpression and normal behaviour of LCOR protein
 
 📂 Dataset Information:
 - **GEO Accession:** GSE292767
 - **Experiment Type:** Expression profiling by high-throughput sequencing
 - **Description:** RNA-Seq experiment in breast cancer cell lines to check the effect of LCOR overexpression in MCF7 and MDA-MB-231.
-
-
 
 ## Quick Navigation
 
@@ -30,7 +26,6 @@ For each cell line we checked overexpression and normal behaviour of LCOR protei
 - [11. Convert GTF to BED](#11-convert-gtf-to-bed)
 - [12. Determine Library Strandedness](#12-determine-library-strandedness)
 - [13. Feature Counting (Read Quantification)](#13-feature-counting-read-quantification)
-- [14. Downstream Analysis](#14-downstream-analysis)
 
 ---
 
@@ -196,48 +191,6 @@ featureCounts -S 2 -a reference/Homo_sapiens.GRCh38.115.gtf \
   -o quants/featurecounts.txt aligned_reads/*.bam
 
 ```
-
----
-
-## 14. Downstream Analysis
-
-### 14.1 Data Import, Filtering, and Normalization
-
-- Import feature count matrix into R (or Python)
-- Filter out lowly expressed genes
-- Normalize counts using methods like TMM (edgeR), DESeq2 normalization (size factors), or TPM/CPM where appropriate
-
-### 14.2 Exploratory Data Analysis (EDA)
-
-- Principal Component Analysis (PCA) to assess sample relationships
-- Hierarchical clustering and sample distance heatmaps
-- Visualization of library complexity and outliers
-
-### 14.3 Differential Gene Expression Analysis
-
-- Use tools such as [`DESeq2`](https://bioconductor.org/packages/release/bioc/html/DESeq2.html), [`edgeR`](https://bioconductor.org/packages/release/bioc/html/edgeR.html), or [`limma-voom`](https://bioconductor.org/packages/release/bioc/html/limma.html)
-- Specify design matrix reflecting biological conditions
-- Estimate dispersion, fit models, run statistical tests
-- Generate lists of differentially expressed genes (DEGs)
-
-### 14.4 Visualization of Results
-
-- MA plots, volcano plots
-- Heatmaps for top DEGs across samples
-- Gene expression plots (boxplots, barplots)
-
-### 14.5 Functional Enrichment Analysis
-
-- Gene Ontology (GO) enrichment (using `clusterProfiler`, `topGO`, `gProfiler`, etc.)
-- Pathway analysis (e.g., KEGG, Reactome)
-
-### 14.6 Advanced/Optional Analyses
-
-- Gene Set Enrichment Analysis (GSEA)
-- Splicing analysis (e.g., using rMATS, DEXSeq)
-- Cell type deconvolution (if bulk tissue)
-- Integration with external data (TCGA, GTEx)
-- Visualization in genome browser (IGV)
 
 ---
 
