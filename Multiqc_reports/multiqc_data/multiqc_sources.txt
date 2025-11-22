@@ -1,0 +1,5 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR32858437_pass	/home/rama/RNA-Seq/FASTQC_reports/SRR32858437_pass_fastqc.zip
+FastQC	all_sections	SRR32858438_pass	/home/rama/RNA-Seq/FASTQC_reports/SRR32858438_pass_fastqc.zip
+FastQC	all_sections	SRR32858439_pass	/home/rama/RNA-Seq/FASTQC_reports/SRR32858439_pass_fastqc.zip
+FastQC	all_sections	SRR32858440_pass	/home/rama/RNA-Seq/FASTQC_reports/SRR32858440_pass_fastqc.zip
