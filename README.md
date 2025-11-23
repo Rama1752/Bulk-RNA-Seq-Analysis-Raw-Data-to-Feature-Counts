@@ -6,8 +6,18 @@ This project demonstrates the initial stages of a Bulk RNA-Seq workflow, focusin
 - **MDA-MB-231 (NR-negative)** — nuclear receptor–negative  
 LCOR acts both as a transcriptional corepressor and activator, and this dataset enables comparison of its regulatory activity in nuclear receptor–dependent versus independent contexts.
 
+🧪 Sample Information
+| Sample ID | Cell Line  | Condition | SRA Accession |
+|-----------|------------|-----------|---------------|
+| Sample 1  | MDA-MB-231 | LCOR OE   | SRR32858437   |
+| Sample 2  | MDA-MB-231 | Wild Type | SRR32858438   |
+| Sample 3  | MCF7       | LCOR OE   | SRR32858439   |
+| Sample 4  | MCF7       | Wild Type | SRR32858440   |
+
+**Note:** This dataset has no biological replicates. For robust differential expression analysis, replicates are essential.
+
 📂 Dataset Information:
-- **GEO Accession:** GSE292767
+- **GEO Accession:** [GSE292767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE292767)
 - **Experiment Type:** Expression profiling by high-throughput sequencing
 - **Description:** RNA-Seq experiment in breast cancer cell lines to check the effect of LCOR overexpression in MCF7 and MDA-MB-231.
 
@@ -49,12 +59,12 @@ mkdir -p SRA_files FASTQ_files FASTQC_reports Multiqc_reports reference aligned_
 - Download SRA files using the SRA toolkit.
 - Convert the SRA files into FASTQ files using fastq-dump.
 - Save the file in .gz format i.e. gzip file so that it would take less space.
-
+- **Run fastq-dump for each sample.**
 ```bash
 #Download SRA files
 prefetch SRR32858437 SRR32858438 SRR32858439 SRR32858440 --progress
 
-#Covert SRA files to FASTQ files
+#Convert SRA files to FASTQ files
 fastq-dump --outdir FASTQ_files --gzip --skip-technical \
 --readids --read-filter pass --dumpbase --split-3 --clip \
 SRR32858437/SRR32858437.sra
@@ -121,7 +131,8 @@ gunzip Homo_sapiens.GRCh38.115.gtf.gz
 ## 8. Alignment/Mapping
  - Rename the files for better understanding.
  - Align reads with the Human Genome and convert the SAM file to BAM file.
-
+ - **Repeat this step for each sample, changing the file names accordingly.**
+ - 
 ```bash
 
 #Renaming the files:
@@ -139,7 +150,7 @@ hisat2 -q -x reference/grch38/genome -U FASTQ_files/MDA_MB_231_LCOR_OE.fastq.gz 
 
 ## 9. BAM index file
 - Creates .bai index file for fast random access.
-
+- **Run for each sample.**
 ```bash
 
 samtools index aligned_reads/MDA_MB_231_LCOR_OE.bam
@@ -149,7 +160,7 @@ samtools index aligned_reads/MDA_MB_231_LCOR_OE.bam
 
 ## 10. Assessing Alignment Quality
 - Generate reports on mapping performance and quality.
-
+- **Run for each sample.**
 ```bash
 
 #QC Check
@@ -173,22 +184,30 @@ gtf2bed < reference/Homo_sapiens.GRCh38.115.gtf > reference/Homo_sapiens.GRCh38.
 ## 12. Determine Library Strandedness
 - RSeQC is used to check the strandedness of the RNA-Seq data.
 - Checking strandedness is necessary cause it assigns the reads to the correct gene, when genes overlap on opposite strands.
-
+  
 ```bash
 
 infer_experiment.py -i aligned_reads/MDA_MB_231_LCOR_OE.bam \
   -r reference/Homo_sapiens.GRCh38.115.bed
 
 ```
+### Interpreting Strandedness Results:
+- **Fraction of reads explained by "++,--":** Matches forward strand
+- **Fraction of reads explained by "+-,-+":** Matches reverse strand
+
+Common interpretations:
+- ~0.5/0.5: **Unstranded** library (use `-s 0` in featureCounts)
+- ~0.01/0.99 or ~0.99/0.01: **Stranded** library (use `-s 1` or `-s 2`)
 
 ---
+
 ## 13. Feature Counting (Read Quantification)
 - Count the reads mapping to genes/features.  
 
 ```bash
 
 featureCounts -S 2 -a reference/Homo_sapiens.GRCh38.115.gtf \
-  -o quants/featurecounts.txt aligned_reads/*.bam
+  -o quants/featurecounts.txt -T 8 aligned_reads/*.bam
 
 ```
 
