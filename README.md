@@ -132,7 +132,7 @@ gunzip Homo_sapiens.GRCh38.115.gtf.gz
  - Rename the files for better understanding.
  - Align reads with the Human Genome and convert the SAM file to BAM file.
  - **Repeat this step for each sample, changing the file names accordingly.**
- - 
+   
 ```bash
 
 #Renaming the files:
