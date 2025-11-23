@@ -130,7 +130,7 @@ gunzip reference/Homo_sapiens.GRCh38.115.gtf.gz
 ## 8. Alignment/Mapping
  - Rename the files for better understanding.
  - Align reads with the Human Genome and convert the SAM file to BAM file.
- - **Repeat this step for each sample, changing the file names accordingly.**
+ - **Repeat alignment step for each sample, changing the file names accordingly.**
    
 ```bash
 
