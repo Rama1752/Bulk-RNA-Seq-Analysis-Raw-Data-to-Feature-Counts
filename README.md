@@ -212,4 +212,22 @@ featureCounts -S 2 -a reference/Homo_sapiens.GRCh38.115.gtf \
 
 ---
 
+## 🎓 What You'll Learn
+
+- Download and process raw sequencing data from SRA
+- Perform comprehensive quality control analysis
+- Align reads to reference genomes
+- Generate gene expression count matrices
+- Understand key concepts in RNA-Seq preprocessing
+
+---
+
+## 📬 Contact
+
+Questions or feedback? Reach out at **mohantyramakrishna17@gmail.com**
+
+If you found this helpful, please ⭐ star this repository!
+
+---
+
 > *Click on any step in [Quick Navigation](#quick-navigation) to jump directly to that section!*
