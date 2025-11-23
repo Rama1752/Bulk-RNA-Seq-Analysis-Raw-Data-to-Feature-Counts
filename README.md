@@ -122,10 +122,8 @@ tar -xvzf grch38_genome.tar.gz -C reference/
 ```bash
 
 wget -P reference/ https://ftp.ensembl.org/pub/release-115/gtf/homo_sapiens/Homo_sapiens.GRCh38.115.gtf.gz
-gunzip Homo_sapiens.GRCh38.115.gtf.gz
-
+gunzip reference/Homo_sapiens.GRCh38.115.gtf.gz 
 ```
-
 ---
 
 ## 8. Alignment/Mapping
