@@ -1,6 +1,7 @@
 # Bulk RNA-Seq Analysis: Raw Data to Feature Counts
 
 🎯 Project Overview:
+
 This project demonstrates the initial stages of a Bulk RNA-Seq workflow, focusing on processing raw sequencing data through to feature count generation. We analyzed the effect of LCOR overexpression and how it affects gene transcription in two cell lines that differ in nuclear receptor status:
 - **MCF7 (NR-positive)** - nuclear receptor-positive
 - **MDA-MB-231 (NR-negative)** - nuclear receptor-negative  
