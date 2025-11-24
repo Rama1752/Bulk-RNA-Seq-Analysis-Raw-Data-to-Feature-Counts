@@ -2,8 +2,8 @@
 
 🎯 Project Overview
 This project demonstrates the initial stages of a Bulk RNA-Seq workflow, focusing on processing raw sequencing data through to feature count generation. We analyzed the effect of LCOR overexpression and how it affects gene transcription in two cell lines that differ in nuclear receptor status:
-- **MCF7 (NR-positive)** — nuclear receptor–positive
-- **MDA-MB-231 (NR-negative)** — nuclear receptor–negative  
+- **MCF7 (NR-positive)** - nuclear receptor–positive
+- **MDA-MB-231 (NR-negative)** - nuclear receptor–negative  
 
 LCOR acts both as a transcriptional corepressor and activator, and this dataset enables comparison of its regulatory activity in nuclear receptor–dependent versus independent contexts.
 
