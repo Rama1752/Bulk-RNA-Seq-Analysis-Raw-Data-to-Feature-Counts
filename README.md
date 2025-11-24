@@ -5,7 +5,7 @@ This project demonstrates the initial stages of a Bulk RNA-Seq workflow, focusin
 - **MCF7 (NR-positive)** - nuclear receptor–positive
 - **MDA-MB-231 (NR-negative)** - nuclear receptor-negative  
 
-LCOR acts both as a transcriptional corepressor and activator, and this dataset enables comparison of its regulatory activity in nuclear receptor–dependent versus independent contexts.
+LCOR acts both as a transcriptional corepressor and activator, and this dataset enables comparison of its regulatory activity in nuclear receptor-dependent versus independent contexts.
 
 🧪 Sample Information
 | Sample ID | Cell Line  | Condition | SRA Accession |
