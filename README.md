@@ -153,7 +153,7 @@ hisat2 -q -x reference/grch38/genome -U FASTQ_files/MDA_MB_231_LCOR_OE.fastq.gz 
 - **Run for each sample.**
 ```bash
 
-samtools index aligned_reads/MDA_MB_231_LCOR_OE.bam
+samtools index aligned_reads/*.bam
 
 ```
 ---
