@@ -191,11 +191,8 @@ infer_experiment.py -i aligned_reads/MDA_MB_231_LCOR_OE.bam \
   -r reference/Homo_sapiens.GRCh38.115.bed
 
 ```
-### Interpreting Strandedness Results:
-- **Fraction of reads explained by "++,--":** Matches forward strand
-- **Fraction of reads explained by "+-,-+":** Matches reverse strand
 
-Common interpretations:
+### Interpreting Strandedness Results:
 - ~0.5/0.5: **Unstranded** library (use `-s 0` in featureCounts)
 - "++,--" dominant: **Forward Stranded** library (use `-s 1` in featureCounts)
 - "+-,-+" dominant: **Reverse Stranded** library (use `-s 2` in featureCounts)
