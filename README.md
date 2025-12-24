@@ -197,8 +197,8 @@ infer_experiment.py -i aligned_reads/MDA_MB_231_LCOR_OE.bam \
 
 Common interpretations:
 - ~0.5/0.5: **Unstranded** library (use `-s 0` in featureCounts)
-- ~0.01/0.99 or ~0.99/0.01: **Stranded** library (use `-s 1` or `-s 2`)
-
+- "++,--" dominant: **Forward Stranded** library (use `-s 1` in featureCounts)
+- "+-,-+" dominant: **Reverse Stranded** library (use `-s 2` in featureCounts)
 ---
 
 ## 13. Feature Counting (Read Quantification)
